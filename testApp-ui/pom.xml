@@ -8,12 +8,27 @@
 	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>testApp-ui</artifactId>
+	<artifactId>tes0tApp-ui</artifactId>
 	<name>testApp-ui</name>
 	<packaging>war</packaging>
 
 	<dependencies>
+
 		<!-- Versions for these are configured in the parent POM -->
+		<dependency>			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-catalina</artifactId>
+			<version>${tomcat.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jasper</artifactId>
+			<version>${tomcat.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-core</artifactId>
+			<version>${tomcat.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -23,6 +38,7 @@
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-push</artifactId>
@@ -88,11 +104,11 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
+				<artifactId>tomcat8-maven-plugin</artifactId>
 				<version>2.3-SNAPSHOT</version>
 				<configuration>
 					<url>http://localhost:8080/</url>
-					<path>/</path>
+					<path>/testApp-ui/</path>
 					<update>true</update>
 				</configuration>
 			</plugin>
