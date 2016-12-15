@@ -20,6 +20,7 @@ import onur.testApp.samples.authentication.LoginScreen.LoginListener;
 import onur.testApp.samples.menuitem1.MenuItem1View;
 
 /**
+ * Test
  * Main UI class of the application that shows either the login screen or the
  * main view of the application depending on whether a user is signed in.
  *
