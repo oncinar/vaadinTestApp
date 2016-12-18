@@ -1,4 +1,4 @@
-package onur.testApp.samples.menuitem5;
+package onur.testApp.samples.menuitemReports;
 
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
@@ -9,12 +9,12 @@ import com.vaadin.ui.Label;
 
 import onur.testApp.samples.MenuItemBaseView;
 
-public class MenuItem5View extends MenuItemBaseView{
+public class MenuItemReportsView extends MenuItemBaseView{
 
 	private static final long serialVersionUID = 1L;
-	public static final String VIEW_NAME = "Menu5";
+	public static final String VIEW_NAME = "Reports";
 
-    public MenuItem5View() {
+    public MenuItemReportsView() {
     	super();
     	
         CssLayout aboutContent = new CssLayout();

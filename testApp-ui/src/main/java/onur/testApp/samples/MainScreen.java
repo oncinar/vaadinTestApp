@@ -7,15 +7,15 @@ import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.VerticalLayout;
 
 import onur.testApp.MyUI;
-import onur.testApp.samples.menuitem1.MenuItem1View;
-import onur.testApp.samples.menuitem2.MenuItem2View;
-import onur.testApp.samples.menuitem3.MenuItem3View;
-import onur.testApp.samples.menuitem4.MenuItem4View;
-import onur.testApp.samples.menuitem5.MenuItem5View;
-import onur.testApp.samples.menuitem6.MenuItem6View;
-import onur.testApp.samples.menuitem7.MenuItem7View;
-import onur.testApp.samples.menuitem8.MenuItem8View;
-import onur.testApp.samples.menuitem9.MenuItem9View;
+import onur.testApp.samples.menuitemAccouningIntegration.MenuItemAccouningIntegrationView;
+import onur.testApp.samples.menuitemBusinessPartners.MenuItemBusinessPartnersView;
+import onur.testApp.samples.menuitemChannels.MenuItemChannelsView;
+import onur.testApp.samples.menuitemDashboard.MenuItemDashboardView;
+import onur.testApp.samples.menuitemOrders.MenuItemOrdersView;
+import onur.testApp.samples.menuitemReports.MenuItemReportsView;
+import onur.testApp.samples.menuitemSettings.MenuItemSettingsView;
+import onur.testApp.samples.menuitemTransportation.MenuItemTransportationView;
+import onur.testApp.samples.menuitemWarehouse.MenuItemWarehouseView;
 
 /**
  * Content of the UI when the user is logged in.
@@ -37,15 +37,15 @@ public class MainScreen extends HorizontalLayout {
         navigator.setErrorView(ErrorView.class);
         menu = new Menu(navigator);
         menu.setStyleName("menu-left");
-        menu.addView(new MenuItem1View(), MenuItem1View.VIEW_NAME, "", new ThemeResource("img/icon_box.png"));
-        menu.addView(new MenuItem2View(), MenuItem2View.VIEW_NAME, "", new ThemeResource("img/icon_boxes.png"));
-        menu.addView(new MenuItem3View(), MenuItem3View.VIEW_NAME, "", new ThemeResource("img/icon_gauge.png"));
-        menu.addView(new MenuItem4View(), MenuItem4View.VIEW_NAME, "", new ThemeResource("img/icon_users.png"));
-        menu.addView(new MenuItem5View(), MenuItem5View.VIEW_NAME, "", new ThemeResource("img/icon_barchart.png"));
-        menu.addView(new MenuItem6View(), MenuItem6View.VIEW_NAME, "", new ThemeResource("img/icon_temple.png"));
-        menu.addView(new MenuItem7View(), MenuItem7View.VIEW_NAME, "", new ThemeResource("img/icon_setting.png"));
-        menu.addView(new MenuItem8View(), MenuItem8View.VIEW_NAME, "", new ThemeResource("img/icon_arrow.png"));
-        menu.addView(new MenuItem9View(), MenuItem9View.VIEW_NAME, "", new ThemeResource("img/icon_settings.png"));
+        menu.addView(new MenuItemOrdersView(), MenuItemOrdersView.VIEW_NAME, MenuItemOrdersView.VIEW_NAME, new ThemeResource("img/icon_box.png"));
+        menu.addView(new MenuItemWarehouseView(), MenuItemWarehouseView.VIEW_NAME, MenuItemWarehouseView.VIEW_NAME, new ThemeResource("img/icon_boxes.png"));
+        menu.addView(new MenuItemDashboardView(), MenuItemDashboardView.VIEW_NAME, MenuItemDashboardView.VIEW_NAME, new ThemeResource("img/icon_gauge.png"));
+        menu.addView(new MenuItemBusinessPartnersView(), MenuItemBusinessPartnersView.VIEW_NAME, MenuItemBusinessPartnersView.VIEW_NAME, new ThemeResource("img/icon_users.png"));
+        menu.addView(new MenuItemReportsView(), MenuItemReportsView.VIEW_NAME, MenuItemReportsView.VIEW_NAME, new ThemeResource("img/icon_barchart.png"));
+        menu.addView(new MenuItemAccouningIntegrationView(), MenuItemAccouningIntegrationView.VIEW_NAME, MenuItemAccouningIntegrationView.VIEW_NAME, new ThemeResource("img/icon_temple.png"));
+        menu.addView(new MenuItemSettingsView(), MenuItemSettingsView.VIEW_NAME, MenuItemSettingsView.VIEW_NAME, new ThemeResource("img/icon_setting.png"));
+        menu.addView(new MenuItemTransportationView(), MenuItemTransportationView.VIEW_NAME, MenuItemTransportationView.VIEW_NAME, new ThemeResource("img/icon_arrow.png"));
+        menu.addView(new MenuItemChannelsView(), MenuItemChannelsView.VIEW_NAME, MenuItemChannelsView.VIEW_NAME, new ThemeResource("img/icon_settings.png"));
 
         navigator.addViewChangeListener(viewChangeListener);
 

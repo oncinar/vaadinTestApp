@@ -1,4 +1,4 @@
-package onur.testApp.samples.menuitem8;
+package onur.testApp.samples.menuitemAccouningIntegration;
 
 import com.vaadin.navigator.ViewChangeListener.ViewChangeEvent;
 import com.vaadin.server.FontAwesome;
@@ -9,12 +9,12 @@ import com.vaadin.ui.Label;
 
 import onur.testApp.samples.MenuItemBaseView;
 
-public class MenuItem8View extends MenuItemBaseView{
+public class MenuItemAccouningIntegrationView extends MenuItemBaseView{
 
 	private static final long serialVersionUID = 1L;
-	public static final String VIEW_NAME = "Menu8";
+	public static final String VIEW_NAME = "Accouning Integration";
 
-    public MenuItem8View() {
+    public MenuItemAccouningIntegrationView() {
     	super();
     	
         CssLayout aboutContent = new CssLayout();

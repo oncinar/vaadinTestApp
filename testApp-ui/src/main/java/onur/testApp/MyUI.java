@@ -17,7 +17,7 @@ import onur.testApp.samples.authentication.AccessControl;
 import onur.testApp.samples.authentication.BasicAccessControl;
 import onur.testApp.samples.authentication.LoginScreen;
 import onur.testApp.samples.authentication.LoginScreen.LoginListener;
-import onur.testApp.samples.menuitem1.MenuItem1View;
+import onur.testApp.samples.menuitemOrders.MenuItemOrdersView;
 
 /**
  * Test
@@ -56,7 +56,7 @@ public class MyUI extends UI {
         addStyleName(ValoTheme.UI_WITH_MENU);
         setContent(new MainScreen(MyUI.this));
 //        getNavigator().navigateTo(getNavigator().getState());
-        get().getPage().setUriFragment("!" +MenuItem1View.VIEW_NAME);
+        get().getPage().setUriFragment("!" +MenuItemOrdersView.VIEW_NAME);
     }
 
     public static MyUI get() {

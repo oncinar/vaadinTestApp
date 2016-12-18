@@ -20,6 +20,7 @@ public abstract class MenuItemBaseView extends VerticalLayout implements View {
 	private VerticalLayout BaseContent;
 
     public MenuItemBaseView() {
+    	
         BaseContent = new VerticalLayout();
 
         HorizontalLayout headerLayout = new HorizontalLayout();
@@ -45,7 +46,6 @@ public abstract class MenuItemBaseView extends VerticalLayout implements View {
         Image imageMessage = new Image(null, new ThemeResource("img/message.png"));
         imageMessage.addClickListener(e -> new Notification("Notificaiton example...").show("Test", Notification.TYPE_HUMANIZED_MESSAGE));
         iconLayout.addComponent(imageMessage);
-        //
 
         // logout menu item
         MenuBar logoutMenu = new MenuBar();
@@ -57,7 +57,6 @@ public abstract class MenuItemBaseView extends VerticalLayout implements View {
         logout.setIcon(new ThemeResource("img/user.png"));
         logout.setStyleName("logout-item");
         logout.addItem("Logout", new Command() {
-
             @Override
             public void menuSelected(MenuItem selectedItem) {
                 VaadinSession.getCurrent().getSession().invalidate();
@@ -65,7 +64,6 @@ public abstract class MenuItemBaseView extends VerticalLayout implements View {
             }
         });
         iconLayout.addComponent(logoutMenu);
-
         
         BaseContent.addComponent(headerLayout);
         addComponent(BaseContent);

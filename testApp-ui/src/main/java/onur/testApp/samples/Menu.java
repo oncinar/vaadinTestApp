@@ -26,11 +26,13 @@ public class Menu extends CssLayout {
     private static final String VALO_MENU_VISIBLE = "valo-menu-visible";
     private Navigator navigator;
     private Map<String, Button> viewButtons = new HashMap<String, Button>();
+    private boolean IsExpanded = false;
 
     private CssLayout menuItemsLayout;
     private CssLayout menuPart;
 
     public Menu(Navigator navigator) {
+    	
         this.navigator = navigator;
         setPrimaryStyleName(ValoTheme.MENU_ROOT);
         menuPart = new CssLayout();
@@ -38,17 +40,27 @@ public class Menu extends CssLayout {
         menuPart.addStyleName(ValoTheme.MENU_PART);
         
         // logout menu item
-        MenuBar logoutMenu = new MenuBar();
-        logoutMenu.addItem("", FontAwesome.ARROW_RIGHT, new Command() {
+        MenuBar expandMenu = new MenuBar();
+        expandMenu.addItem("", FontAwesome.ANGLE_DOUBLE_RIGHT, new Command() {
 
-            @Override
+			private static final long serialVersionUID = 1L;
+
+			@Override
             public void menuSelected(MenuItem selectedItem) {
+				if(IsExpanded){
+					IsExpanded = false;
+	            	menuPart.setWidth("85px");
+	            	expandMenu.getItems().get(0).setIcon(FontAwesome.ANGLE_DOUBLE_RIGHT);
+				}else{
+					IsExpanded = true;
+	            	menuPart.setWidth("210px");
+	            	expandMenu.getItems().get(0).setIcon(FontAwesome.ANGLE_DOUBLE_LEFT);
+				}
+            	expandMenu();
             }
         });
-
-        logoutMenu.addStyleName("user-menu");
-        menuPart.addComponent(logoutMenu);
-
+        expandMenu.addStyleName("user-menu");
+        menuPart.addComponent(expandMenu);
 
         // button for toggling the visibility of the menu when on a small screen
         final Button showMenu = new Button("Menu", new ClickListener() {
@@ -90,8 +102,7 @@ public class Menu extends CssLayout {
      * @param icon
      *            view icon in the menu
      */
-    public void addView(View view, final String name, String caption,
-            Resource icon) {
+    public void addView(View view, final String name, String caption, Resource icon) {
         navigator.addView(name, view);
         createViewButton(name, caption, icon);
     }
@@ -111,18 +122,19 @@ public class Menu extends CssLayout {
      * @param icon
      *            view icon in the menu
      */
-    public void addView(Class<? extends View> viewClass, final String name,
-            String caption, Resource icon) {
+    public void addView(Class<? extends View> viewClass, final String name,  String caption, Resource icon) 
+    {
         navigator.addView(name, viewClass);
         createViewButton(name, caption, icon);
     }
 
-    private void createViewButton(final String name, String caption,
-            Resource icon) {
+    private void createViewButton(final String name, String caption, Resource icon) {
         Button button = new Button(caption, new ClickListener() {
+			private static final long serialVersionUID = 1L;
 
-            @Override
+			@Override
             public void buttonClick(ClickEvent event) {
+            	//TODO isim nerden geliyor amk ? Buton create ederken isim verdigi metoddan nasil listener a koyuyor ?
                 navigator.navigateTo(name);
 
             }
@@ -149,5 +161,17 @@ public class Menu extends CssLayout {
             selected.addStyleName("selected");
         }
         menuPart.removeStyleName(VALO_MENU_VISIBLE);
+        expandMenu();
+    }
+    
+    public void expandMenu() {
+    	for(String key : viewButtons.keySet()) {
+    		Button button = viewButtons.get(key);
+            if(IsExpanded) {
+            	button.setCaption(key);
+            }else {
+            	button.setCaption("");
+            }
+        }
     }
 }
