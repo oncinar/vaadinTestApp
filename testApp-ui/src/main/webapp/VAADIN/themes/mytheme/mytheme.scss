@@ -218,6 +218,10 @@ $v-layout-spacing-horizontal: round($v-unit-size / 1.8) !default;
     padding: 6px;
     }
     
+    .logout-menu .v-menubar-menuitem-logout-item .v-icon {
+     	padding-top: 0px;
+    	padding-left: 0px;
+	}
 
   // Style rules for smaller display sizes
 

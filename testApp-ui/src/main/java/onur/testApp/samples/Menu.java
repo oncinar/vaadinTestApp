@@ -6,9 +6,7 @@ import java.util.Map;
 import com.vaadin.navigator.Navigator;
 import com.vaadin.navigator.View;
 import com.vaadin.server.FontAwesome;
-import com.vaadin.server.Page;
 import com.vaadin.server.Resource;
-import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Button.ClickListener;
@@ -38,20 +36,19 @@ public class Menu extends CssLayout {
         menuPart = new CssLayout();
         menuPart.setWidth("85px");
         menuPart.addStyleName(ValoTheme.MENU_PART);
-
+        
         // logout menu item
         MenuBar logoutMenu = new MenuBar();
-        logoutMenu.addItem("Logout", FontAwesome.SIGN_OUT, new Command() {
+        logoutMenu.addItem("", FontAwesome.ARROW_RIGHT, new Command() {
 
             @Override
             public void menuSelected(MenuItem selectedItem) {
-                VaadinSession.getCurrent().getSession().invalidate();
-                Page.getCurrent().reload();
             }
         });
 
         logoutMenu.addStyleName("user-menu");
         menuPart.addComponent(logoutMenu);
+
 
         // button for toggling the visibility of the menu when on a small screen
         final Button showMenu = new Button("Menu", new ClickListener() {
